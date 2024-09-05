@@ -1,0 +1,195 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@* @using RapidR.Entities *@
+@using Microsoft.AspNetCore.Http
+@using System.Security.Claims
+@{
+    var hasSuperAdminRole = User?.IsInRole("Super Admin") ?? false;
+    var hasManagerRole = User?.IsInRole("Manager") ?? false;
+    var hasCompanyAdminRole = User?.IsInRole("Company Admin") ?? false;
+    var hasDoctorRole = User?.IsInRole("Doctor") ?? false;
+    var hasWorkerRole = User?.IsInRole("Worker") ?? false;
+}
+
+<script src="~/js/site.js"></script>
+
+
+<nav class="sidebar">
+    <div class="sidebar-header">
+
+        <a href="#" class="sidebar-brand" style="font-size:12px;font-weight:normal;">
+               @* <table>
+                    <tr>
+                        <td>
+                        
+                            <img src="~/assets/images/logo-toggle.png" width="50" height="50" />&nbsp;
+                            <img class="logo-text" src="~/assets/images/logo-text.png" width="30" height="30" />
+                       
+                        </td>
+                    </tr>
+                </table>*@
+            <span>
+                <img src="~/assets/images/logo-toggle.png" class="logo-image" width="50" height="50"/>&nbsp;
+                <img src="~/assets/images/logo-text.png" class="text-image" width="60" height="40" />
+            </span>
+
+        </a>
+        
+        <div class="sidebar-toggler not-active" >
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="sidebar-body">
+        <ul class="nav">
+            @if (!hasWorkerRole)
+            {
+                <li class="nav-item main-item" id="dashboardNav">
+                    <a class="nav-link ">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title fw-normal" onclick="navigateMe('/Dashboard/DashBoard')">Dashboard</span>
+                </a>
+            </li>}
+            @if (hasSuperAdminRole)
+            {
+                <li class="nav-item main-item" id="productsNav">
+                    <a class="nav-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal" onclick="navigateMe('/Admin/User/user')">Companies</span>
+                    </a>
+                </li>
+                <li class="nav-item main-item" id="productsNav">
+                    <a class="nav-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal" onclick="navigateMe('/Admin/Role/Index')">User Roles</span>
+                    </a>
+                </li>
+                
+            }
+            @if (hasManagerRole)
+            {
+                <li class="nav-item main-item" id="productsNav">
+                    <a class="nav-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal" onclick="navigateMe('/Patients')">Patients</span>
+                    </a>
+                </li>
+                <li class="nav-item main-item" id="productsNav">
+                    <a href="/Manager/Index?id=1" class="nav-link btn btn-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal">Claims</span>
+                    </a>
+                </li>
+
+                <li class="nav-item main-item" id="productsNav">
+                    <a href="/Manager/Index?id=2" class="nav-link btn btn-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal">Assigned Claims</span>
+                    </a>
+                </li>
+                <li class="nav-item main-item" id="productsNav">
+                    <a href="/Manager/Index?id=3" class="nav-link btn btn-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal">Unassigned Claims</span>
+                    </a>
+                </li>
+             
+            }
+            @if (hasCompanyAdminRole)
+            {
+                <li class="nav-item main-item" id="productsNav">
+                    <a class="nav-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal" onclick="navigateMe('/Users/Index')">Users</span>
+                    </a>
+                </li>
+                
+            }
+            @if(hasWorkerRole)
+            {
+                <li class="nav-item main-item" id="productsNav">
+                    <a class="nav-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal" onclick="navigateMe('/Worker/Index')">Claims</span>
+                    </a>
+                </li>
+            }
+            @if (hasDoctorRole)
+            {
+                <li class="nav-item main-item" id="productsNav">
+                    <a class="nav-link">
+                        <i class="link-icon" data-feather="package"></i>
+                        <span class="link-title fw-normal" onclick="navigateMe('/Doctor/Index')">Claims</span>
+                    </a>
+                </li>
+            }
+          
+            @*
+
+
+                    <li class="nav-item main-item" >
+                        <a class="nav-link">
+                            <i class="link-icon" data-feather="shopping-cart"></i>
+                            <span class="link-title fw-normal" onclick="navigateMe('/Products/Index')">Products</span>
+
+                        </a>
+
+
+
+                    </li>
+                    <li class="nav-item main-item" >
+                        <a class="nav-link">
+                            <i class="link-icon" data-feather="users"></i>
+                            <span class="link-title fw-normal" onclick="navigateMe('/Clients/Index')">Clients</span>
+
+                        </a>
+
+
+
+                    </li>
+                    <li class="nav-item main-item" >
+                        <a class="nav-link">
+                            <i class="link-icon" data-feather="list"></i>
+                            <span class="link-title fw-normal" onclick="navigateMe('/InstallmentPlans/Index')">Plans</span>
+
+                        </a>
+                    </li>
+                <li class="nav-item main-item" id="productsNav">
+                    <a class="nav-link" onclick="toggleProductsSubMenu();">
+                        <i class="link-icon" data-feather="bar-chart"></i>
+                        <span class="link-title fw-normal" >Reports</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                    </a>
+                    <div class="collapse" id="products">
+                        <ul class="nav sub-menu">
+                            <li class="nav-item">
+                                <a href="/Report/ProductSales" class="nav-link fw-normal" id="productsListNav">
+                                    ProductSales
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav sub-menu">
+                            <li class="nav-item">
+                                <a href="/Report/ClientSales" class="nav-link fw-normal" id="productsListNav">
+                                    ClientSales
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav sub-menu">
+                            <li class="nav-item">
+                                <a href="/Report/MonthlyReport" class="nav-link fw-normal" id="productsListNav">
+                                    Monthly Report
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>*@
+                   
+                       
+                
+        </ul>
+
+    </div>
+</nav>
+
+

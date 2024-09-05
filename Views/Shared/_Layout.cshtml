@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Injazat.Presentation</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Injazat.Presentation.styles.css" asp-append-version="true" />
+
+    <link href="~/assets/css/style.css" rel="stylesheet"/>
+    @await Html.PartialAsync("~/Pages/Shared/PartialViews/Styles.cshtml")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+
+    @{
+        var showLayout = !Context.Request.Path.Value.StartsWith("/Login");
+
+    }
+
+    @if (showLayout)
+    {
+        <!-- Custom overlay -->
+        <div class="custom-overlay" id="customOverlay"></div>
+        <!-- End of Custom overlay -->
+        <!-- Top notification div -->
+        <div class="alert-container" id="topNotifications"> </div>
+        <!-- End top notification div -->
+
+        <div class="main-wrapper">
+            @await Html.PartialAsync("~/Pages/Shared/PartialViews/LeftMenu.cshtml")
+            <div class="page-wrapper">
+                @await Html.PartialAsync("~/Pages/Shared/PartialViews/TopNavBar.cshtml")
+                <div class="page-content">
+                    @RenderBody()
+                </div>
+                @await Html.PartialAsync("~/Pages/Shared/PartialViews/Footer.cshtml")
+            </div>
+        </div>
+
+        @await Html.PartialAsync("~/Pages/Shared/PartialViews/Scripts.cshtml")
+        @await RenderSectionAsync("Scripts", required: false)
+    }
+    else
+    {
+        @RenderBody()
+    }
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

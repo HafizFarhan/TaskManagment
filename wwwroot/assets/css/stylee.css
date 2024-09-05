@@ -1,0 +1,336 @@
+/*Hpme page css*/
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+:root {
+    --primary: #13C5DD;
+    --secondary: #354F8E;
+    --light: #EFF5F9;
+    --dark: #1D2A4D;
+    --orange: #f79131;
+}
+
+.btn {
+    font-weight: 700;
+    transition: .5s;
+}
+
+.btn:hover {
+    -webkit-box-shadow: 0 8px 6px -6px #555555;
+    -moz-box-shadow: 0 8px 6px -6px #555555;
+    box-shadow: 0 8px 6px -6px #555555;
+}
+
+.btn-primary {
+    color: #FFFFFF;
+}
+
+.btn-square {
+    width: 36px;
+    height: 36px;
+}
+
+.btn-sm-square {
+    width: 28px;
+    height: 28px;
+}
+
+.btn-lg-square {
+    width: 46px;
+    height: 46px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+.touchbtn {
+    background-color: #f79131;
+    color:white;
+}
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 30px;
+    bottom: 0;
+    color: #fa810f;
+    border-radius: 50% 50% 0 0;
+    z-index: 99;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-family: 'Jost', sans-serif;
+    position: relative;
+    margin-left: 30px;
+    padding: 30px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    outline: none;
+    transition: .5s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+ .navbar-light .navbar-nav .nav-link.active {
+        color: #f79131;
+    }
+
+@media (min-width: 992px) {
+    .navbar-light .navbar-nav .nav-link::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 5px;
+        bottom: 0;
+        left: 50%;
+        background: #1a3d5f;
+        transition: .5s;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover::before,
+    .navbar-light .navbar-nav .nav-link.active::before {
+        width: 100%;
+        left: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-light .navbar-nav .nav-link  {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+}
+
+.hero-header {
+    background: url(../images/img/main5.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.service-item {
+    position: relative;
+    height: 350px;
+    padding: 0 30px;
+    transition: .5s;
+}
+
+    .service-item .service-icon {
+        width: 150px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--orange);
+        border-radius: 50%;
+        transform: rotate(-14deg);
+    }
+
+.service-item .service-icon i {
+    transform: rotate(15deg);
+}
+
+.service-item a.btn {
+    position: absolute;
+    width: 60px;
+    bottom: -48px;
+    left: 50%;
+    margin-left: -30px;
+    opacity: 0;
+}
+
+.service-item:hover a.btn {
+    bottom: -24px;
+    opacity: 1;
+}
+
+
+@media (min-width: 576px) {
+    .team-item .row {
+        height: 350px;
+    }
+}
+
+.d-block {
+    color: #f79131;
+}
+.about {
+    color: #f79131;
+}
+.welcome, .serviceheading, .packagemain {
+    color: #fa810f;
+}
+
+/* Custom Button Styles */
+.btn-signup, .btn-login {
+    font-size: 14px;
+    padding: 7px 15px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-signup {
+    background-color: #f79131;
+    border: 2px solid #f79131;
+    color: white;
+}
+
+    .btn-signup:hover {
+        background-color: white;
+        color: #f79131;
+        border: 2px solid #f79131;
+    }
+
+.btn-login {
+    background-color: #ffffff;
+    border: 2px solid #f79131;
+    color: #f79131;
+}
+
+    .btn-login:hover {
+        background-color: #f79131;
+        color: white;
+        border: 2px solid #f79131;
+    }
+
+/* Additional Styling for Hover Effects */
+.btn:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+/*Packages css*/
+
+
+/*.package {
+    background-color: #dff9fb;
+}*/
+
+.packagehead {
+    text-align: center;
+    margin-top: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.packagecontent {
+    margin-bottom: 4rem;
+}
+
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.plan {
+    background-color: #fff;
+    padding: 2.5rem;
+    margin: 12px;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+ .plan  h2
+{
+    font-size: 22px;
+    margin-bottom: 12px;
+    color:aliceblue;
+}
+
+.price {
+    margin-bottom: 1rem;
+    font-size: 30px;
+}
+
+ul.features {
+    list-style-type: none;
+    text-align: left;
+}
+    ul.features li {
+        margin: 8px;
+    }
+        ul.features li .fas {
+            margin-right: 4px;
+        }
+
+.fa-check-circle {
+    color: #6ab04c;
+}
+
+.fa-times-circle {
+    color: #eb4d4b;
+}
+
+
+button {
+    border: none;
+    width: 100%;
+    padding: 12px 35px;
+    margin-top: 1rem;
+    background-color: #f79131;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popular {
+    border: 2px solid #f79131;
+    position: relative;
+    transform: scale(1.08);
+}
+
+    .popular span {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f79131;
+        color: #fff;
+        padding: 4px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+
+
+    .popular span :hover {
+        box-shadow: 5px 7px 67px -28px rgba(0, 0, 0, 0.37);
+    }
+
+/*    footer styling*/
+
+.contactbg {
+    background-color: #f79131;
+}
+.contactheading {
+    color: #f79131;
+}
+
+.footer-head, .contactfotter  {
+    color: #f79131;
+}
+.container-fluidfoot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; 
+}
+
+.containerfoot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footertext p {
+    white-space: nowrap;
+}
+
+.footertextp a {
+    color: #f79131;
+}
+.social {
+    background-color: #d3d3d3;
+}

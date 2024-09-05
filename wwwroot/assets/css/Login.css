@@ -1,0 +1,110 @@
+﻿
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.logo-image {
+    width: 25%;
+    margin-left: 35%;
+    margin-bottom: 7%;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Adjust the width as needed */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 26px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 40px; /* Adjust the padding to accommodate the icon */
+}
+
+.input-icon {
+    position: absolute;
+    left: 10px;
+    top: 70%;
+    transform: translateY(-50%);
+    color: #777; /* Icon color */
+    font-size: 18px; /* Icon size */
+}
+
+    .input-icon i {
+        pointer-events: none; /* Make sure the icon doesn't interfere with input events */
+    }
+
+.btn-primary {
+    background-color: #f79131;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px; 
+    cursor: pointer;
+}
+    .btn-primary:focus {
+        outline: none;
+        box-shadow: none;
+        background-color: #f79131;
+        color: #fff;  
+    }
+a {
+    color: #f79131;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    a:hover {
+        color: #da6a00;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.btn-primary:hover {
+    background-color: #da6a00
+}
+
+.forgot-password {
+    font-size: 14px;
+    color: #f79131;
+    margin-top: 10px;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+

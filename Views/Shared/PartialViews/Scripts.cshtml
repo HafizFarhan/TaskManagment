@@ -1,0 +1,50 @@
+﻿
+<script src="~/assets/vendors/intltelinput/intltelinput.min.js"></script>
+<script src="~/assets/vendors/intltelinput/utils.js"></script>
+<script src="~/assets/vendors/intltelinput/intltelinput-custom.js"></script>
+<script src="~/assets/vendors/sweetalert2/sweetalert2.min.js"></script>
+<script src="~/assets/vendors/feather-icons/feather.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script type="text/javascript">
+    //genereal Toast alerts
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+</script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<!-- core:js -->
+<script src="~/assets/vendors/core/core.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="~/assets/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script src="~/assets/vendors/flatpickr/flatpickr.min.js"></script>
+<script src="~/assets/vendors/apexcharts/apexcharts.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="~/assets/vendors/feather-icons/feather.min.js"></script>
+
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="~/assets/js/dashboard-light.js"></script>
+<!-- End custom js for this page -->
+<script src="~/assets/js/template.js"></script>
+<script src="~/assets/js/tags-input.js"></script>
+<!-- Listing table scripts -->
+<script src="~/assets/js/ListingTable.js"></script>
+<script src="~/assets/vendors/sweetalert2/sweetalert2.min.js"></script>
+<script src="~/assets/js/sweet-alert.js"></script>
+<script src="~/assets/vendors/select2/select2.min.js"></script>
+<script src="~/assets/js/select2.customselectionadapter.js"></script>
+<!--Design System Phone# script -->
+<script src="~/assets/vendors/intltelinput/intltelinput.min.js"></script>
+<script src="~/assets/vendors/intltelinput/utils.js"></script>
+<script src="~/assets/vendors/intltelinput/intltelinput-custom.js"></script>
